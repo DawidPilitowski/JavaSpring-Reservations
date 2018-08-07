@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: links">
+</head>
+<body>
+
+<div th:replace="fragments :: header"></div>
+
+<div class="container marketing">
+    <h2>
+        <p th:if="${clientsName} != null" th:text="'Hello ' + ${clientsName} + '!'"></p>
+        <p th:if="${clientsName} == null">I dont't know You</p>
+    </h2>
+
+    <div th:each="element : ${list}">
+        <p th:text="${element}"></p>
+    </div>
+</div>
+
+<div th:replace="fragments :: footer"></div>
+
+</body>
+</html>

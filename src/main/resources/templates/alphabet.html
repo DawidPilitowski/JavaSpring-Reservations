@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="i : ${#numbers.sequence(0, howMany)}">
+        <!--alphabet to lista liter-->
+        <!--letter to litera z listy-->
+        <td th:each="letter : ${alphabet}">
+            <p th:text="${letter}"></p>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

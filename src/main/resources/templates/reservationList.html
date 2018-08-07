@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: links">
+</head>
+<body>
+
+<div th:replace="fragments :: header"></div>
+
+<div class="container marketing">
+    <!--Treść strony-->
+    <h3>Event list:</h3>
+    <div class="row col-md-offset-1 col-md-10">
+        <div class="row table-header"> <!--Nagłówek-->
+            <div class="col-md-1">Id</div>
+            <div class="col-md-2">Participant name</div>
+            <div class="col-md-2">Event Name</div>
+            <div class="col-md-3">Status</div>
+            <div class="col-md-4">Actions</div>
+        </div>  <!--Nagłowek end-->
+        <div class="row table-row" th:each="reservation : ${reservationList}">
+            <div class="col-md-1"><p th:text="${reservation.getId()}"></p></div>
+            <div class="col-md-2"><p th:text="${reservation.getName()}"></p></div>
+            <!--todo: dodaj link - na kliknięcie nazwy eventu wyświetl jego szczegóły -->
+            <div class="col-md-2"><p th:text="${reservation.getEvent().getName()}"></p></div>
+            <div class="col-md-3"><p th:text="${reservation.getStatus()}"></p></div>
+            <div class="col-md-4 row">
+                <div class="col-md-6"> <!--Usuwanie-->
+                    <a th:href="@{'/reservation/remove/' + ${reservation.getId()}}">Remove</a>
+                </div>
+                <div class="col-md-6"> <!--Szczegóły-->
+                    <a th:href="@{'/reservation/details/' + ${reservation.getId()}}">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Treść strony-->
+</div>
+
+<div th:replace="fragments :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: links">
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+
+<div class="container marketing">
+    <div class="row">
+        <form th:action="@{/reservation/add}" th:object="${reservation}" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="participant">Participant name:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="participant" th:field="*{participantName}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="event">Event:</label>
+                </div>
+                <div class="col-md-5">
+                    <select class="form-control" id="event" th:field="*{eventId}">
+                        <option th:each="revent : ${events}"
+                                th:text="${revent.name}"
+                                th:value="${revent.id}"></option>
+                    </select>
+                    <!--<input class="form-control" id="event" th:field="*{event}">-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-5">
+                    <input class="form-control" type="submit" th:value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: footer"></div>
+
+</body>
+</html>

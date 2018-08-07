@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <!-- Na dole jest przykład użycia pętli for(int i=1; i<size; i++) -->
+    <tr th:each="i : ${#numbers.sequence( 1, size)}">
+        <!-- Na dole jest przykład użycia pętli for(int j=1; j<size; j++) -->
+        <td th:each="j : ${#numbers.sequence( 1, size)}">
+            <!--System.out.println(i)-->
+            <p th:text="${i*j}"></p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: links">
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+
+<div class="container marketing">
+    <div class="row">
+        <form th:action="@{/event/add}" th:object="${event}" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="eventName">Event name:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="eventName" th:field="*{name}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="eventDate">Event date:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="eventDate" type="date" th:field="*{date}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="reservationsLimit">Reservations limit:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="reservationsLimit" type="number" th:field="*{reservationsLimit}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="description">Description:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="description" type="text" th:field="*{description}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-5">
+                    <input class="form-control" type="submit" th:value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: footer"></div>
+
+</body>
+</html>
