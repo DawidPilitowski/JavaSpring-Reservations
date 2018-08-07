@@ -51,4 +51,8 @@ public class ReservationService {
     public Optional<Reservation> find(Long id) {
         return reservationRepository.findById(id);
     }
+
+    public void removeReservation(Long id) {
+        reservationRepository.deleteById(id);
+    }
 }

@@ -31,6 +31,10 @@
                 <div class="col-md-6"> <!--Szczegóły-->
                     <a th:href="@{'/reservation/details/' + ${reservation.getId()}}">Details</a>
                 </div>
+                <div class="col-md-6"> <!--Szczegóły-->
+                    <a th:href="@{'/reservation/accept/' + ${reservation.getId()}}">Accept</a>
+                </div>
+
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.ws.rs.Path;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,6 +75,23 @@ public class ReservationController {
     @PostMapping(path = "/save")
     public String save(Reservation reservation) {
         reservationService.saveReservation(reservation);
+
+        return "redirect:/reservation/list";
+    }
+
+    @GetMapping(path = "/about")
+    public String about(@PathVariable(name = "id") Long id, Model model) {
+        Optional<Reservation> reservationOptional = reservationService.find(id);
+        if (reservationOptional.isPresent()) {
+            model.addAttribute("reservation", reservationOptional.get());
+            return "reservationDetails";
+        }
+        return "redirect:/error";
+
+    }
+    @GetMapping(path = "/remove/{id}")
+    public String remove(@PathVariable(name = "id") Long id) {
+        reservationService.removeReservation(id);
 
         return "redirect:/reservation/list";
     }
