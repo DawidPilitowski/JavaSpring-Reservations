@@ -5,11 +5,6 @@ import com.dawid.reservation.model.Reservation;
 import com.dawid.reservation.model.ReservationEvent;
 import com.dawid.reservation.model.ReservationStatus;
 import com.dawid.reservation.repository.ReservationRepository;
-import com.dawid.reservation.model.CreateReservationDTO;
-import com.dawid.reservation.model.Reservation;
-import com.dawid.reservation.model.ReservationEvent;
-import com.dawid.reservation.model.ReservationStatus;
-import com.dawid.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

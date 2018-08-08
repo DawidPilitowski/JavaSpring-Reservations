@@ -21,7 +21,6 @@
         <div class="row table-row" th:each="reservation : ${reservationList}">
             <div class="col-md-1"><p th:text="${reservation.getId()}"></p></div>
             <div class="col-md-2"><p th:text="${reservation.getName()}"></p></div>
-            <!--todo: dodaj link - na kliknięcie nazwy eventu wyświetl jego szczegóły -->
             <div class="col-md-2"><p th:text="${reservation.getEvent().getName()}"></p></div>
             <div class="col-md-3"><p th:text="${reservation.getStatus()}"></p></div>
             <div class="col-md-4 row">
@@ -31,9 +30,9 @@
                 <div class="col-md-6"> <!--Szczegóły-->
                     <a th:href="@{'/reservation/details/' + ${reservation.getId()}}">Details</a>
                 </div>
-                <div class="col-md-6"> <!--Szczegóły-->
-                    <a th:href="@{'/reservation/accept/' + ${reservation.getId()}}">Accept</a>
-                </div>
+                <!--<div class="col-md-6"> &lt;!&ndash;Szczegóły&ndash;&gt;-->
+                    <!--<a th:href="@{'/reservation/accept/' + ${reservation.getId()}}">Accept</a>-->
+                <!--</div>-->
 
             </div>
         </div>

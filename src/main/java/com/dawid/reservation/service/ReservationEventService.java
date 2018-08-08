@@ -2,8 +2,6 @@ package com.dawid.reservation.service;
 
 import com.dawid.reservation.model.ReservationEvent;
 import com.dawid.reservation.repository.ReservationEventRepository;
-import com.dawid.reservation.model.ReservationEvent;
-import com.dawid.reservation.repository.ReservationEventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

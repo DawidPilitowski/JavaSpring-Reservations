@@ -5,11 +5,6 @@ import com.dawid.reservation.model.Reservation;
 import com.dawid.reservation.model.ReservationEvent;
 import com.dawid.reservation.service.ReservationEventService;
 import com.dawid.reservation.service.ReservationService;
-import com.dawid.reservation.model.CreateReservationDTO;
-import com.dawid.reservation.model.Reservation;
-import com.dawid.reservation.model.ReservationEvent;
-import com.dawid.reservation.service.ReservationEventService;
-import com.dawid.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.ws.rs.Path;
 import java.util.List;
 import java.util.Optional;
 

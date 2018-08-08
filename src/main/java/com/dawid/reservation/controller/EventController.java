@@ -2,8 +2,6 @@ package com.dawid.reservation.controller;
 
 import com.dawid.reservation.model.ReservationEvent;
 import com.dawid.reservation.service.ReservationEventService;
-import com.dawid.reservation.model.ReservationEvent;
-import com.dawid.reservation.service.ReservationEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

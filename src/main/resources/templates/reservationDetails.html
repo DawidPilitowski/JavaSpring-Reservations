@@ -27,8 +27,8 @@
                         <label for="status">Status:</label>
                     </div>
                     <div class="col-md-5">
-                        <input class="form-control" id="status" type="text" th:value="*{status}"
-                               th:field="*{status}">
+                        <input type="radio" name="status" id="status" th:value="CONFIRMED"> Confirmed<br>
+                        <input type="radio" name="status" th:value="UNCONFIRMED"> Unconfirmed<br>
                     </div>
                 </div>
                 <div class="row">
