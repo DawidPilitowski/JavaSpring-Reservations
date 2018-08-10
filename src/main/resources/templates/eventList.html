@@ -13,17 +13,19 @@
     <div class="row col-md-offset-1 col-md-10">
         <div class="row table-header"> <!--Nagłówek-->
             <div class="col-md-1">Id</div>
-            <div class="col-md-2">Name</div>
+            <div class="col-md-1">Name</div>
             <div class="col-md-2">Date</div>
-            <div class="col-md-3">Reservations Limit</div>
+            <div class="col-md-2">Reservations Limit</div>
+            <div class="col-md-2">Reservations Seats</div>
             <div class="col-md-2">Description</div>
             <div class="col-md-2">Actions</div>
         </div>  <!--Nagłowek end-->
         <div class="row table-row" th:each="event : ${eventList}">
             <div class="col-md-1"><p th:text="${event.getId()}"></p></div>
-            <div class="col-md-2"><p th:text="${event.getName()}"></p></div>
+            <div class="col-md-1"><p th:text="${event.getName()}"></p></div>
             <div class="col-md-2"><p th:text="${event.getDate()}"></p></div>
-            <div class="col-md-3"><p th:text="${event.getReservationsLimit()}"></p></div>
+            <div class="col-md-2"><p th:text="${event.getReservationsLimit()}"></p></div>
+            <div class="col-md-2"><p th:text="${event.getReservedSeats()}"></p></div>
             <div class="col-md-2"><p th:text="${event.getDescription()}"></p></div>
             <div class="col-md-2 row">
                 <div class="col-md-6"> <!--Usuwanie-->

@@ -30,4 +30,8 @@ public class ReservationEvent {
     // jeden event ma wiele rezerwacji
     @OneToMany(mappedBy = "event")
     private List<Reservation> reservations;
+
+    @Transient
+    private Integer reservedSeats;
+
 }

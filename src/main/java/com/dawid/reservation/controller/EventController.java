@@ -1,7 +1,9 @@
 package com.dawid.reservation.controller;
 
+import com.dawid.reservation.model.Reservation;
 import com.dawid.reservation.model.ReservationEvent;
 import com.dawid.reservation.service.ReservationEventService;
+import com.dawid.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,11 +21,23 @@ public class EventController {
 
     @Autowired
     private ReservationEventService reservationEventService;
+    @Autowired
+    private ReservationService reservationService;
 
     @GetMapping(path = "/list")
     public String list(Model model) {
         // pobieram z bazy danych listę wydarzeń
         List<ReservationEvent> eventList = reservationEventService.getAllEvents();
+        List<Reservation> allReservations = reservationService.getReservations();
+
+        for (ReservationEvent event : eventList) {
+            int eventReservationCounter = 0;
+            for (Reservation reservation : allReservations) {
+                if (reservation.getEvent().equals(event))
+                    eventReservationCounter++;
+            }
+            event.setReservedSeats(eventReservationCounter);
+        }
 
         // przekazuję listę do modelu (jako atrybut)
         model.addAttribute("eventList", eventList);
@@ -62,7 +76,6 @@ public class EventController {
     @GetMapping(path = "/remove/{id}")
     public String remove(@PathVariable(name = "id") Long id) {
         reservationEventService.removeEvent(id);
-
         return "redirect:/event/list";
     }
 }
