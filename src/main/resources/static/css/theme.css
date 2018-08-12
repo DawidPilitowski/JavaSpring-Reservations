@@ -147,3 +147,6 @@ body {
 .table-row {
     border: 1px #5a5a5a solid;
 }
+.error_mesage{
+    color:red !important;
+}
