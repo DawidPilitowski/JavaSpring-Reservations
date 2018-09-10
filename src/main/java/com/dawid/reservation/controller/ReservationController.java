@@ -29,9 +29,7 @@ public class ReservationController {
     @GetMapping(path = "/add")
     public String add(Model model) {
         CreateReservationDTO reservation = new CreateReservationDTO();
-
         List<ReservationEvent> events = reservationEventService.getAllEvents();
-
         model.addAttribute("reservation", reservation);
         model.addAttribute("events", events);
 
@@ -42,15 +40,13 @@ public class ReservationController {
     public String add(CreateReservationDTO reservation) {
         reservationService.addReservation(reservation);
 
-        return "redirect:/event/add";
+        return "redirect:/reservation/list";
     }
 
     @GetMapping(path = "/list")
     public String list(Model model) {
         List<Reservation> reservations = reservationService.getReservations();
-
         model.addAttribute("reservationList", reservations);
-
         return "reservationList";
     }
 

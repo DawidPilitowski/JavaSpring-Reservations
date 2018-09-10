@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: links">
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+
+<div class="container marketing">
+    <div class="row">
+        <form th:action="@{/login}" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="username">Username:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="username" name="username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="password">Password:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="password" type="password" name="password">
+                </div>
+            </div>
+            <!--/*@thymesVar id="error_message" type=""*/-->
+            <div th:if="${error_message} != null" class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <p class="error_message" th:text="${error_message}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-5">
+                    <input class="form-control" type="submit" th:value="Submit">
+                </div>
+            </div>
+            <small>Nie masz konta?</small>
+            <a href="register" class="signup">Rejestracja</a>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: links">
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+
+<div class="container marketing">
+    <div class="row">
+        <form th:action="@{/register}" th:object="${user_dto}" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="username">Username:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="username" th:field="*{username}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="password">Password:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="password" type="password" th:field="*{password}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="confirm-password">Confirm password:</label>
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control" id="confirm-password" type="password" th:field="*{confirm_password}">
+                </div>
+            </div>
+            <div th:if="${error_message} != null" class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <p class="error_message" th:text="${error_message}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-5">
+                    <input class="form-control" type="submit" th:value="Submit">
+                </div>
+            </div>
+            <small>Masz już konto?</small>
+            <a href="login" class="signup">Zaloguj się</a>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: footer"></div>
+
+</body>
+</html>

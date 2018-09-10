@@ -12,9 +12,9 @@
 </head>
 <body>
 <div th:fragment="header">
-    <p sec:authorize="hasRole('ROLE_ADMIN')">
-        Jesteś adminem!
-    </p>
+    <!--<p sec:authorize="hasRole('ROLE_ADMIN')">-->
+        <!--Jesteś adminem!-->
+    <!--</p>-->
     <div class="navbar-wrapper">
         <div class="container">
 
@@ -42,7 +42,7 @@
                             <li><a th:href="@{/reservation/list}">Reservations</a></li>
                             <li><a th:href="@{/reservation/add}">Add Reservation</a></li>
 
-                            <li><a th:href="@{/about}">About</a></li>
+                            <!--<li><a th:href="@{/about}">About</a></li>-->
                             <!--<li class="dropdown">-->
                             <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
                             <!--aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->

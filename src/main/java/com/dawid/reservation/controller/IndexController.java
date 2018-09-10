@@ -15,10 +15,10 @@ public class IndexController {
     @Autowired
     private AppUserService appUserService;
 
-    @GetMapping(path = "/")
-    public String index() {
-        return "home";
-    }
+//    @GetMapping(path = "/")
+//    public String index() {
+//        return "home";
+//    }
 
     @GetMapping(path = "/login")
     public String login() {
@@ -30,7 +30,12 @@ public class IndexController {
         model.addAttribute("user_dto", new RegisterAppUserDTO());
         return "userRegister";
     }
+    @GetMapping(path = "/")
+    public String getIndex(Model model) {
+        model.addAttribute("title", "reservationEvent");
 
+        return "login";
+    }
     @PostMapping(path = "/register")
     public String register(Model model, RegisterAppUserDTO dto) {
         if (!dto.getConfirm_password().equals(dto.getPassword())) {
